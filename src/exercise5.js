@@ -1,3 +1,14 @@
 exports.run = function(input) {
-  console.log("Exercise #5");
+  var fs = require('fs');
+  input.showInProgress();
+  fs.readdir(input.directory,function (err,files){
+      if(err)
+      {
+          input.showError();
+      }
+      else
+      {
+          input.showDone(files.length);
+      }
+  })
 };
